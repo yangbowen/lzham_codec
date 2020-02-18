@@ -2,12 +2,12 @@
 // See Copyright Notice and license at the end of include/lzham.h
 #pragma once
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <cassert>
+#include <cstdarg>
 #include <malloc.h>
-#include <assert.h>
-#include <stdarg.h>
 #include <string>
 #include <vector>
 
@@ -22,22 +22,21 @@
 
 namespace lzham_ex
 {
-   typedef signed char int8;
-   typedef unsigned char uint8;
-   typedef signed short int16;
-   typedef unsigned short uint16;
-   typedef unsigned int uint;
-   typedef signed int int32;
-   typedef unsigned int uint32;
-   typedef signed __int64 int64;
-   typedef unsigned __int64 uint64;
+   using uint8 = uint8_t;
+   using int8 = int8_t;
+   using uint8 = uint8_t;
+   using uint16 = uint16_t;
+   using int16 = int16_t;
+   using uint32 = uint32_t;
+   using uint = uint32;
+   using int32 = int32_t;
+   using uint64 = uint64_t;
+   using int64 = int64_t;
 
-   const uint16 UINT16_MIN = 0;
-   const uint16 UINT16_MAX = 0xFFFFU;
-   const uint64 UINT64_MIN = 0;
-   const uint64 UINT64_MAX = 0xFFFFFFFFFFFFFFFFULL;    //0xFFFFFFFFFFFFFFFFui64;
-   const int64 INT64_MIN = (int64)0x8000000000000000ULL; //(-9223372036854775807i64 - 1);
-   const int64 INT64_MAX = (int64)0x7FFFFFFFFFFFFFFFULL; //9223372036854775807i64;
+   inline constexpr uint8  UINT8_MIN = 0;
+   inline constexpr uint16 UINT16_MIN = 0;
+   inline constexpr uint32 UINT32_MIN = 0;
+   inline constexpr uint64 UINT64_MIN = 0;
 
    template<typename T> inline void zero_object(T& obj) { memset(&obj, 0, sizeof(obj)); }
 } // namespace lzham_ex
